@@ -3,7 +3,7 @@
 GRAMMAR
 -------
 Stmt_list   -> Stmt Stmt_list | .
-Stmt        -> id equals Expr | print Expr
+Stmt        -> id assign Expr | print Expr
 Expr        -> Term Term_tail.
 Term_tail   -> xor Term Term_tail | .
 Term        -> Factor Factor_tail.
