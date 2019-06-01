@@ -20,7 +20,7 @@ Stmt_list:		id print
 Stmt:			id print
 Term_tail:		xor
 Term:			leftPar id number
-Factor_tail:	or
+Factor_tail:	        or
 Factor:			leftPar id number
 Atom_tail:		and
 Atom:			leftPar id number
@@ -31,7 +31,7 @@ Stmt_list:		∅
 Stmt:			id print
 Term_tail:		rightPar id print
 Term:			rightPar xor id print
-Factor_tail:	rightPar xor id print
+Factor_tail:	        rightPar xor id print
 Factor:			rightPar or xor id print
 Atom_tail:		rightPar or xor id print
 Atom:			rightPar and or xor id print
