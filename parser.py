@@ -212,7 +212,7 @@ class MyParser:
 # create the parser object
 parser = MyParser()
 
-with open("recursive-descent-parsing.txt","r") as fp:
+with open("parsing.txt","r") as fp:
 	try:
 		parser.parse(fp)
 	except plex.errors.PlexError:
