@@ -2,37 +2,37 @@
 """
 GRAMMAR
 -------
-Stmt_list   -> Stmt Stmt_list | ε
+Stmt_list   -> Stmt Stmt_list | .
 Stmt        -> id equals Expr | print Expr
-Expr        -> Term Term_tail
-Term_tail   -> xor Term Term_tail | ε
+Expr        -> Term Term_tail.
+Term_tail   -> xor Term Term_tail | .
 Term        -> Factor Factor_tail.
-Factor_tail -> or Factor Factor_tail | ε
-Factor      -> Atom Atom_tail
-Atom_tail   -> and Atom Atom_tail | ε
-Atom        -> lPar Expr rPar | id | number
+Factor_tail -> or Factor Factor_tail | .
+Factor      -> Atom Atom_tail.
+Atom_tail   -> and Atom Atom_tail | .
+Atom        -> leftPar Expr rightPar | id | number
 FIRST sets
 ----------
 Stmt_list:		id print
 Stmt:			id print
 Term_tail:		xor
-Term:			lPar id number
+Term:			leftPar id number
 Factor_tail:	or
-Factor:			lPar id number
+Factor:			leftPar id number
 Atom_tail:		and
-Atom:			lPar id number
-Expr:			lPar id number
+Atom:			leftPar id number
+Expr:			leftPar id number
 FOLLOW sets
 -----------
 Stmt_list:		∅
 Stmt:			id print
-Term_tail:		rPar id print
-Term:			rPar xor id print
-Factor_tail:	rPar xor id print
-Factor:			rPar or xor id print
-Atom_tail:		rPar or xor id print
-Atom:			rPar and or xor id print
-Expr:			rPar id print
+Term_tail:		rightPar id print
+Term:			rightPar xor id print
+Factor_tail:	        rightPar xor id print
+Factor:			rightPar or xor id print
+Atom_tail:		rightPar or xor id print
+Atom:			rightPar and or xor id print
+Expr:			rightPar id print
 """
 
 
@@ -49,7 +49,6 @@ class MyParser:
 		decimal = plex.Range('09')
 		binary = plex.Range('01')
 		letter = plex.Range('azAZ')
-		
 		equals = plex.Str('=')
 		lPar = plex.Str('(')
 		rPar = plex.Str(')')
